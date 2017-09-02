@@ -1,0 +1,65 @@
+<html>
+
+    <head>
+    <meta name="theme-color" content=#ff6905 />
+        <link rel="stylesheet" type="text/css" href="addDevice.css">
+    </head>
+    
+    <script>function gotoIndex(){
+    
+    setTimeout(function () {
+       window.location.href = "/"; 
+    }, 600);   
+}
+        function transition(){
+            var triangle = document.getElementById("backID");
+            var body = document.getElementById("fade");
+            triangle.style.webkitTransform = "translateX(1500px)";
+            body.style.webkitTransform = "translateX(1500px)";
+            body.style.backgroundColor = "white";
+            gotoIndex();
+        }
+        
+</script>
+    
+    
+    <div class="back" id="backID" onclick="transition()">&#x25c0;</div>
+    <Div class="title">SELECT YOUR DEVICE</Div>
+    <body style="background-color: #ff6905" id="fade" class="thing">
+    
+        
+    <table>
+        <tr>
+        <th class="withBorder"><img src="Images/dryer_orange.png"></th>
+            <th class="withoutBorder">Washer</th>
+        <th class="withBorder"><img src="Images/dryer_orange.png"></th>
+            <th class="withoutBorder">Dryer</th>
+        </tr>
+        <tr>
+        <th class="withBorder"><img src="Images/fridge_orange.png"></th>
+            <th class="withoutBorder">Fridge</th>
+        <th class="withBorder"><img src="Images/laptop_orange.png"></th>
+            <th class="withoutBorder">Laptop</th>
+        </tr>
+        <tr>
+        <th class="withBorder"><img src="Images/microwave_orange.png"></th>
+            <th class="withoutBorder">Oven</th>
+        <th class="withBorder"><img src="Images/phone_orange.png"></th>
+            <th class="withoutBorder">Android</th>
+        </tr>
+        <tr>
+        <th class="withBorder"><img src="Images/phone_orange.png"></th>
+            <th class="withoutBorder">iPhone</th>
+        <th class="withBorder"><img src="Images/phone_orange.png"></th>
+            <th class="withoutBorder">Other</th>
+        </tr>
+        
+        
+        </table>
+    
+    
+    </body>
+    
+
+
+</html>

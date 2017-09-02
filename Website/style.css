@@ -1,0 +1,269 @@
+.currentHeader {
+    
+    float:left;
+    
+    font-size: 70px;
+    
+    padding-left: 7%;
+    font-family: "Yu Gothic";
+    font-weight: 900;
+    color: #ff6905;
+}
+
+.totalHeader {
+    float:right; 
+    
+    font-size: 70px;
+    
+    padding-right: 13%;
+    font-family: "Yu Gothic";
+    font-weight: 900;
+    color: #ff6905;
+}
+
+.current {
+    
+   text-align:left;
+    display: inline-block;
+    font-size: 60px;
+    padding-left: 13%;
+    font-family: "Yu Gothic";
+    font-weight: 900;
+    color: #999999;
+    
+}
+
+.total {
+    float: right;
+    text-align:left;
+    display: inline-block;
+    font-size: 60px;
+    padding-right: 12%;
+    font-family: "Yu Gothic";
+    font-weight: 900;
+    color: #999999;
+    
+    
+}
+
+th {
+   
+    height: 200px;
+    
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: auto;
+    font-size: 40px;
+    
+    
+}
+
+
+
+.mainTable{
+    
+   width: 95%;
+   border-spacing: 20px;
+    margin: auto;
+    font-size: 40px; 
+    
+}
+
+.settingsTable {
+    
+    width: 100%;
+    margin: auto;
+    font-size: 40px;
+}
+
+.headerTable{
+    
+    width: 100%;
+    
+}
+
+
+
+#fade{
+ -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 80px;
+font-family: "Yu Gothic";
+    color: #818181;
+    display: block;
+    transition: 0.1s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 80px;
+    margin-left: 50px;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #ff6905;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 150px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size:100px;
+}
+
+/* Main content */
+.main {
+    margin-top  : 155px; /* Add a top margin to avoid content overlay */
+}
+
+
+.navbar span {
+    
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: none;
+    font-size:100px;
+}
+
+
+
+
+
+
+.kc_fab_main_btn{
+  background-color:#ff6905;
+    position: fixed;
+  width:150px;
+  height:150px;
+    right:5%;
+    bottom: 5%;
+    
+  border-radius:100%;
+  background:#ff6905;
+  border:none;
+  outline:none;
+  color:#FFF;
+  font-size:90px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition:1.5s;  
+ 
+}
+.kc_fab_main_btn:focus {
+  
+    transform:translateX(4000px)  scale(100);
+
+}
+
+
