@@ -1,0 +1,127 @@
+
+
+.title{
+    
+    z-index: -1;
+    font-family: "Yu Gothic";
+    font-size: 60px;
+    margin-top: 20px;
+    top: 15px;
+    color: white;
+    left: 20%;
+    position: fixed;
+    overflow: hidden;
+    display: inline-block;
+   
+}
+
+.back {
+    
+    font-size: 120px;
+display: inline-block;
+    position: fixed;
+    left: 10px;
+    top: 0;
+    padding-top: 0;
+    color: white;
+    -webkit-text-stroke: 3px black;
+   
+}
+
+#backID:hover ~ .thing{
+   transform: translateX(500px)
+}
+
+body{
+   
+    margin-top: 200px;
+}
+
+.thing{
+    transition: 0.8s;
+   
+}
+
+
+
+
+/*fade in and out */
+
+#fade{
+ -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+
+
+
+
+
+.withBorder{
+    
+    height: 200px;
+
+
+padding-bottom: 50px;
+padding-right: 50px;
+    margin-right:0;
+    background-color: white;
+    text-align: center;
+     border-bottom: 4px solid #ff6905;
+ 
+
+}
+
+.withoutBorder{
+    background-color: white;
+    font-size: 60px;
+    width: 500px;
+    padding-left: 0;
+    border-right: 4px solid #ff6905;
+    border-bottom: 4px solid #ff6905;
+    font-family: "Yu Gothic";
+   
+}
+
+
+
+img{
+    
+    vertical-align: middle;
+
+    height: auto;
+    width: 150px;
+   
+    padding-left: 30px;
+    margin-top: 20px;
+    
+    
+}
+
+
+
+
+table{
+    border-collapse: collapse;
+}

@@ -1,0 +1,136 @@
+<html>
+    
+    <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+        <!-- set browser colour -->
+        <meta name="theme-color" content="#ff6905" />
+    </head>
+    
+    <script type=text/javascript src="{{
+  url_for('static', filename='jquery.js') }}"></script>
+</html>
+    
+    <script>
+
+    
+     
+
+ function thing() {
+
+    var val = 1;
+    var entry1 = 3;
+
+    $.getJSON({
+    url: "/getData",
+    data: { entry2_id: val, entry1_id: entry1 },
+    success: function(data){
+        document.getElementById("current").innerHTML = data.var1;
+        document.getElementById("current1").innerHTML = data.var1;
+        document.getElementById("total").innerHTML = data.var2;
+        
+    }
+    });
+
+ } 
+        
+setInterval(thing, 1000);
+        
+</script>
+    
+    <div id="fade">
+    
+<div class="navbar">
+    <a onclick="openNav()">&#9776;</a>
+    <span>InfoPlug</span>
+    </div>
+    
+    
+  <!-- sidenav -->  
+    <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Home</a>
+  <a href="/static/Settings.html">Settings</a>
+  <a href="/static/About.html">About</a>
+</div>
+
+
+    
+    
+    <div class="main">
+    
+        
+        <!-- the main current and total -->
+<table class="headerTable">
+    <tr>
+        <td class="currentHeader">WATTAGE</td>
+        <td class="totalHeader">VOLTAGE</td>
+    </tr>    
+    <tr>
+        <td class="current" id="current">0</td>
+        <td class="total" id="total">0</td>
+    </tr>
+    
+</table>
+
+
+  
+    
+    <hr>
+    
+    <table class="mainTable">
+    
+        <tr>
+        <th><img src="/static/Images/laptop_orange.png" style="height: 150px;float: left;">Laptop<div id="current1"></div>watts</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        <tr>
+        <th>Appliance (Placeholder)</th>
+        </tr>
+        
+        
+    </table>
+        
+
+
+
+        
+        <!-- end of main -->
+    </div>
+    <button class="kc_fab_main_btn" onclick="addDevice()">+</button>
+
+</div>
+    
+    
+    
+    
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+    
