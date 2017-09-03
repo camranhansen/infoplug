@@ -90,6 +90,8 @@ def processData(data):
         # get peakVoltages
 	vmax = max(voltagedata)
 	vmin = min(voltagedata)
+	q = len(voltagedata)
+	voltagedata = [120] * q
 	
         #this gives us the mean of the sum of squares
         # then sqrt to get the RMS
@@ -209,7 +211,7 @@ if plotGraph:
 	legend((voltagewatchline, ampwatchline), ('volts', 'amps'))
 
 s = serial.Serial('COM8', 115200, timeout=0)
-s.open()
+s.isOpen()
 
 if plotGraph:
 	print "Setting up graphs.."
