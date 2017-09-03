@@ -32,7 +32,7 @@ totalWatts += watts;
 
   totalWatts = totalWatts / 20;
   if(totalWatts > 1){
-  Serial.println(totalWatts);
+  Serial.println(analogRead(0));
   }else{
     Serial.println("0");
   }
