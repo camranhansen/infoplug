@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-# Misc imports
 import numpy as np
 import math
 import serial
@@ -8,16 +5,32 @@ from threading import Timer
 from flask import Flask, render_template, jsonify
 from multiprocessing import Process, Value
 import wx
-import matplotlib2
 # Globals.. still needed?	
 totalVolt=0.0
 totalAmp=0.0
 tcnt=0
 avgwattdataidx=0
-plotGraph=True
 wattAve = 0
+print "test"
+avgwattdata = [0] * 1800
+s = serial.Serial('COM8', 115200, timeout=0)
+s.isOpen()
 
-  
+def parsePacket(packet):
+	data=[]
+	T = packet.split(";")
+	for t in T:
+		timestep=[]
+		readings = t.split(",")
+		#print readings
+		if len(readings) == 2:
+			for z in readings:
+				# todo: error checking/handeling 
+				if z != "":
+					timestep.append(int(z))
+			data.append(timestep)	
+	return data
+
 
 def processData(data):
 	N_samples = 160
@@ -102,4 +115,16 @@ def processData(data):
 	wattAve /= len(wattdata) #for 1/30 of a second, since 2 cycles for 60 HZ
 	return ampdata, aave/149, wattAve
 
-print processData();
+
+def readDataEvent(event):
+	readData()
+		
+def readData():
+	global totalVolt
+        global totalAmp
+	global tcnt
+        if s.isOpen:
+		p = s.readline().strip()
+		data = parsePacket(p)
+		if data != []:
+			processData(data)
