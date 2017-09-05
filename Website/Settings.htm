@@ -1,5 +1,30 @@
+<head>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+        <!-- set browser colour -->
+        <meta name='theme-color' content='#ff6905' />
+    </head>
+
+
+<div class='navbar'>
+    <a onclick='openNav()'>&#9776;</a>
+    <span>InfoPlug</span>
+    </div>
+    
+    
+  <!-- sidenav -->  
+    <div id='mySidenav' class='sidenav'>
+  <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>&times;</a>
+  <a href='/'>Home</a>
+  <a href='Settings.htm'>Chart</a>
+  <a href='About.htm'>About</a>
+</div>
+
+<div class="main">
+
 <div class="chart-container">
     <canvas id="chart"></canvas>
+</div>
+    
 </div>
 <!-- Load the libraries -->
 <script src="chart.js"></script>
@@ -43,5 +68,15 @@
 	// console.log("doing b now")
 	// console.log(b);
 	// console.log(b.split(","));
+    
+    
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "45%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 
 </script>
