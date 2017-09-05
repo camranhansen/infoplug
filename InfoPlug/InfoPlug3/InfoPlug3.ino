@@ -81,6 +81,7 @@ void loop() {
   maxA = 0;
   minA = 1024;
   sendWatts = totalWatts;
+  sendWatts -= 3;
   
   totalWatts = 0;
 

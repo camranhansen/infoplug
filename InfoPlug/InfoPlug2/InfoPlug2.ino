@@ -189,6 +189,8 @@ void buildJavascript(){
   javaScript+="   xmldoc = xmlResponse.getElementsByTagName('response');\n";
   javaScript+="   message = xmldoc[0].firstChild.nodeValue;\n";
   javaScript+="   document.getElementById('runtime').innerHTML=message;\n";
+  javaScript+="   var price = Math.round((parseInt(message) / 1000) * 0.12 * 1000) / 1000;";
+  javaScript+="document.getElementById('total').innerHTML=price.toString();";
   javaScript+=" }\n";
   javaScript+="}\n";
   javaScript+="process();";
@@ -292,7 +294,7 @@ void loop(void){
     {
         prevMillis = currentMillis;             // Record the current time.
         ledPinState ^= 1;                       // Toggle the LED
-       // digitalWrite(ledPin, ledPinState);      //   "     "   "
+       digitalWrite(ledPin, ledPinState);      //   "     "   "
         Wire.requestFrom(SLAVE_ADDRESS, 2);     // Request 2 bytes from the slave device.
     }
 
