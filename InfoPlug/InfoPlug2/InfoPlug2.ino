@@ -101,7 +101,7 @@ void buildWebsite(){
  "<a href='javascript:void(0)' class='closebtn' "
  "onclick='closeNav()'>&times;</a>"
  "<a href='#'>Home</a>"
-"<a href='Settings.htm'>Settings</a>"
+"<a href='Settings.htm'>Chart</a>"
 "<a href='About.htm'>About</a>"
 "</div>"
 "<div class='main'>"
