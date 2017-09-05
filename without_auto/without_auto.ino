@@ -1,5 +1,5 @@
 int N_samples = 160;
-int AREF = 512;
+int AREF = 475;
 int VREF = 0;
 float totalVolt;
 float dataIn[149];
@@ -50,7 +50,7 @@ void loop() {
   }
 
   totalWatts = totalWatts / 20;
-  if (totalWatts > 1) {
+  if (totalWatts > 7) {
     Serial.println(totalWatts);
   } else {
     Serial.println("0");

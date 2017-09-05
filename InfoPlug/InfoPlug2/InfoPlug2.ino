@@ -1,10 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
+#include <Wire.h>
 #include <ESP8266mDNS.h>
 #include <SPI.h>
 #include <SD.h>
-
+#define SLAVE_ADDRESS 0x08
 #define DBG_OUTPUT_PORT Serial
 
 
@@ -15,9 +16,11 @@ ESP8266WebServer server(80);
 static bool hasSD = false;
 File uploadFile;
 String webSite,javaScript,XML;
-
+const byte ledPin = 13;
 int analog;
 int analogSend;
+int iRXVal;
+int wattage;
 
 void returnOK() {
   server.send(200, "text/plain", "");
@@ -201,33 +204,8 @@ void buildXML(){
 
 String wattAve(){
 
-/*
-int analog[20];
-int max_amps = 0;
-int max_amps_index = 0;
-for (int i = 0;i<20;i++){
-  analog[i] = analogRead(0);
-  
-}
 
-for (int n = 0;n<20;n++){
-  if(analog[n] > max_amps){
-    max_amps = analog[n];
-    max_amps_index = n;
-  }
-}
-
-  String max_amps_string = String(max_amps);
-
-
- for(int i = 0;i<60;i++){
-    analog += abs(analogRead(0));
-  }
-analogSend = analog / 60;
-analog = 0;
-  return String(analogSend);
- */
- return "test";
+ return String(wattage);
 }
 
 
@@ -260,6 +238,9 @@ void handleNotFound(){
 }
 
 void setup(void){
+
+  pinMode(ledPin, OUTPUT);
+    Wire.begin(2,5);   
   DBG_OUTPUT_PORT.begin(115200);
   DBG_OUTPUT_PORT.setDebugOutput(true);
   DBG_OUTPUT_PORT.print("\n");
@@ -303,7 +284,28 @@ void setup(void){
 
 void loop(void){
   server.handleClient();
-  Serial.println(analogRead(0));
+  static unsigned long prevMillis = 0;
+    static bool ledPinState = 0;
+
+    unsigned long currentMillis = millis();     // Get the current time.
+    if (currentMillis - prevMillis >= 1000)     // I2C updates once per second
+    {
+        prevMillis = currentMillis;             // Record the current time.
+        ledPinState ^= 1;                       // Toggle the LED
+       // digitalWrite(ledPin, ledPinState);      //   "     "   "
+        Wire.requestFrom(SLAVE_ADDRESS, 2);     // Request 2 bytes from the slave device.
+    }
+
+    // Receive the 'int' from I2C and print it:-
+    if (Wire.available() >= 2)                  // Make sure there are two bytes.
+    {
+        
+        for (int i = 0; i < 2; i++)             // Receive and rebuild the 'int'.
+            iRXVal += Wire.read() << (i * 8);   //    "     "     "     "    "
+            wattage = iRXVal;
+            iRXVal = 0;
+        Serial.println(iRXVal);                 // Print the result.
+    }
 }
 
 

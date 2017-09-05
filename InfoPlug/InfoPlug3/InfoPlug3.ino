@@ -1,3 +1,7 @@
+#include <Wire.h>
+#define SLAVE_ADDRESS 0x08
+
+
 int N_samples = 160;
 int AREF = 512;
 int VREF = 0;
@@ -11,9 +15,17 @@ float totalWatts;
 float maxA = 0;
 float minA = 1024;
 float arAref = 0;
+const byte ledPin = 13;
+int iTestVal;
+int sendWatts;
+
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+    pinMode(ledPin, OUTPUT);
+    Wire.begin(SLAVE_ADDRESS);                      // Join I2C bus with address.
+    Wire.onRequest(I2CrequestHandler);                // Register request handler.
 }
 
 void loop() {
@@ -35,6 +47,7 @@ void loop() {
       } else if (dataIn[i] < minA) {
         minA = dataIn[i];
       }
+     // AREF = 500;
       dataIn[i] -= AREF;
       dataIn[i] = dataIn[i] * currentNorm;
 
@@ -52,17 +65,30 @@ void loop() {
     watts = watts / 149;
     totalWatts += watts;
   }
-  AREF = arAref / 20;
+ 
+  totalWatts = totalWatts / 20;
+  if (totalWatts > 4) {
+   
+  } else {
+    totalWatts = 0;
+  }
+
+   Serial.print(totalWatts);
+    Serial.print(",");
+    Serial.println(AREF);
+   AREF = arAref / 20;
   arAref = 0;
   maxA = 0;
   minA = 1024;
-  totalWatts = totalWatts / 20;
-  if (totalWatts > 1) {
-    Serial.println(totalWatts);
-  } else {
-    Serial.println("0");
-  }
+  sendWatts = totalWatts;
+  
   totalWatts = 0;
 
 
+}
+
+
+void I2CrequestHandler()
+{
+    Wire.write((byte*)&sendWatts, 2);            // Transmit the 'int', one byte at a time.
 }
