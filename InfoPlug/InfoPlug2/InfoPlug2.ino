@@ -321,7 +321,7 @@ unsigned long currentMillis1 = millis();     // Get the current time.
         prevMillis1 = currentMillis1;             // Record the current time.
         minuteAverage = minuteTotal / minuteIndex;
        minuteTotal = 0;
-       minuteAverage = 0;
+       minuteIndex = 0;
         saveData();
     }
 
@@ -337,7 +337,8 @@ void saveData(){
 sensorData = SD.open("data.txt", FILE_WRITE);
 if (sensorData){
   Serial.println("saving");
-sensorData.println(minuteAverage);
+sensorData.print(minuteAverage);
+sensorData.print(",");
 sensorData.close(); // close the file
 }
 }
