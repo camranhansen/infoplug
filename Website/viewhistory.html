@@ -9,18 +9,21 @@
 	$.get('data.txt', function(result) {
 		// console.log(typeof result);
 		// console.log(result)
-		var arr = result.split(",");
-		console.log(arr)
+		var dat = result.split(",");
+		a = dat.slice(0, 60);
+		console.log(a)
 		// a = result.strip(",")
 		var options = {
 		  type: 'line',
 		  data: {
-		    labels: arr,
+		    labels: a,
 		    datasets: [
 			    {
-					label: 'wattage',
-					data: arr,
-					borderWidth: 1
+					label: 'Hourly view: Wattage',
+					data: a,
+					borderWidth: 2,
+					borderColor : "#ff6905",
+					backgroundColor : "#ffb482"
 		    	}
 				]
 		  },
