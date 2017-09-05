@@ -103,7 +103,7 @@ void buildWebsite(){
 "<table class='headerTable'>"
 "<tr>"
 " <td class='currentHeader'>WATTAGE</td>"
-"<td class='totalHeader'>VOLTAGE</td>"
+"<td class='totalHeader'>Cost (cents/hr)</td>"
  "</tr>"
 "<tr>"
 "<td class='current' id='runtime'></td>"
@@ -112,7 +112,7 @@ void buildWebsite(){
 "</table>"
 "<hr>""<table class='mainTable'>"
 " <tr>"
-"<th><img src='Images/laptop_orange.png' style='height: 150px;float: left;'>Laptop<div id='current1'>"
+"<th><img src='Images/laptop_orange.png' style='height: 150px;float: left;'>InfoPlug<div id='current1'>"
 "</div>watts</th>"
 "</tr>"
 "<tr>"
@@ -189,7 +189,8 @@ void buildJavascript(){
   javaScript+="   xmldoc = xmlResponse.getElementsByTagName('response');\n";
   javaScript+="   message = xmldoc[0].firstChild.nodeValue;\n";
   javaScript+="   document.getElementById('runtime').innerHTML=message;\n";
-  javaScript+="   var price = Math.round((parseInt(message) / 1000) * 0.12 * 1000) / 1000;";
+  javaScript+="   document.getElementById('current1').innerHTML=message;\n";
+  javaScript+="   var price = Math.round((parseInt(message) / 1000) * 12 * 1000) / 1000;";
   javaScript+="document.getElementById('total').innerHTML=price.toString();";
   javaScript+=" }\n";
   javaScript+="}\n";
