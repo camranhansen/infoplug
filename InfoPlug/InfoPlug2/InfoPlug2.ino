@@ -21,6 +21,11 @@ int analog;
 int analogSend;
 int iRXVal;
 int wattage;
+int minuteTotal;
+int minuteAverage;
+int minuteIndex;
+
+File sensorData;
 
 void returnOK() {
   server.send(200, "text/plain", "");
@@ -307,8 +312,36 @@ void loop(void){
             iRXVal += Wire.read() << (i * 8);   //    "     "     "     "    "
             wattage = iRXVal;
             iRXVal = 0;
-        Serial.println(iRXVal);                 // Print the result.
+                         // Print the result.
     }
+static unsigned long prevMillis1 = 0;
+unsigned long currentMillis1 = millis();     // Get the current time.
+    if (currentMillis1 - prevMillis1 >= 60000)    
+    {
+        prevMillis1 = currentMillis1;             // Record the current time.
+        minuteAverage = minuteTotal / minuteIndex;
+       minuteTotal = 0;
+       minuteAverage = 0;
+        saveData();
+    }
+
+    
+     minuteIndex +=1;
+        minuteTotal += wattage;
+    
 }
+
+void saveData(){
+ // check the card is still there
+// now append new data file
+sensorData = SD.open("data.txt", FILE_WRITE);
+if (sensorData){
+  Serial.println("saving");
+sensorData.println(minuteAverage);
+sensorData.close(); // close the file
+}
+}
+
+
 
 
