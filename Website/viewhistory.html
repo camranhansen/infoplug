@@ -1,1 +1,35 @@
-<canvas id="hourlychart"></canvas>
+<div class="chart-container">
+    <canvas id="chart"></canvas>
+</div>
+<!-- Load the libraries -->
+<script src="chart.js"></script>
+<script src="jquery.js"></script>
+<!-- do the graph-->
+<script>
+	$.get('data.txt', function(result) {
+		console.log(result)
+	});
+
+	a = [1,2,3,4,5,6,7,8,9,10,2,5,2,3,4,1]
+	var options = {
+	  type: 'line',
+	  data: {
+	    labels: a,
+	    datasets: [
+		    {
+				label: 'wattage',
+				data: a,
+				borderWidth: 1
+	    	}
+			]
+	  },
+	  options: {
+	  	scales: {
+	    	xAxes: [{display: false}]
+	    }
+	  }
+	}
+
+	var ctx = document.getElementById('chart').getContext('2d');
+	new Chart(ctx, options);
+</script>
