@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 SEP 2017 02:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 SEP 2017 02:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -34,27 +34,21 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 6.
+ [1
 
-Overfull \hbox (16.4719pt too wide) in paragraph at lines 8--11
-[]\OT1/cmr/m/n/10 I am writ-ing to you on be-half of the Wikipedia project (htt
-p://www.wikipedia.org/),
- []
-
-[1
-
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./how_to_use.aux) ) 
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./how_
+to_use.aux) ) 
 Here is how much of TeX's memory you used:
- 139 strings out of 493014
- 1478 string characters out of 6133351
+ 138 strings out of 493014
+ 1462 string characters out of 6133351
  55601 words of memory out of 5000000
- 3768 multiletter control sequences out of 15000+600000
+ 3767 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,6n,17p,144b,133s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb>
-Output written on how_to_use.pdf (1 page, 24055 bytes).
+ 23i,6n,17p,162b,136s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb>
+Output written on how_to_use.pdf (1 page, 23934 bytes).
 PDF statistics:
  12 PDF objects out of 1000 (max. 8388607)
  7 compressed objects within 1 object stream
