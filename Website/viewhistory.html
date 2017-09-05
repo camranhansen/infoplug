@@ -11,6 +11,7 @@
 		// console.log(result)
 		var dat = result.split(",");
 		a = dat.slice(0, 60);
+		a = dat.slice(-1);
 		console.log(a)
 		// a = result.strip(",")
 		var options = {
@@ -23,7 +24,8 @@
 					data: a,
 					borderWidth: 2,
 					borderColor : "#ff6905",
-					backgroundColor : "#ffb482"
+					// backgroundColor : "#ffb482"
+					fill: false
 		    	}
 				]
 		  },
