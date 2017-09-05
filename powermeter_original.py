@@ -91,7 +91,7 @@ def processData(data):
 	vmax = max(voltagedata)
 	vmin = min(voltagedata)
 	q = len(voltagedata)
-	voltagedata = [120] * q
+
 	
         #this gives us the mean of the sum of squares
         # then sqrt to get the RMS
